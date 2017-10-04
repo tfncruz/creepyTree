@@ -1,35 +1,18 @@
 var arvore = new Arvore();
+
 function setup() {
-	createCanvas(800,windowHeight);
+	createCanvas(800, windowHeight);
 
-	arvore.initArvore(width/2,height,0.3);
-
+	// cx,cy,altPercentage
+	arvore.initArvore(width/2, height, 0.3);
 }
 
 function draw() {
-	arvore.desenhaTronco();
-}
+	background(255);
 
-function Arvore() {
-	this.posXIni;
-	this.posYIni;
-	this.alturaTronco;
+	// esp
+	arvore.desenhaTronco(50);
 
-	this.initArvore = function(cx,cy,altPercentage) {
-		this.posXIni = cx;
-		this.posYIni = cy;
-		this.alturaTronco = height*altPercentage;
-	}
-
-	this.desenhaTronco = function() {
-		var tx = this.posXIni + this.alturaTronco * cos(PI+HALF_PI);
-		var ty = this.posYIni + this.alturaTronco * sin(PI+HALF_PI);
-		stroke(0);
-		strokeWeight(50);
-		line(this.posXIni, this.posYIni, tx, ty);
-	}
-
-	this.desenhaArvore = function() {
-
-	}
+	// tx, ty, angIni, compIni, largIni, gen, nRamos
+	arvore.desenhaRamos(arvore.tx, arvore.ty, PI, arvore.alturaTronco, arvore.espessuraTronco, 4, 2);
 }

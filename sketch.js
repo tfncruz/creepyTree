@@ -4,6 +4,7 @@ var compPercentagem;
 var compVarMin, compVarMax;
 var largPercentagem;
 var angIniMin, angIniMax;
+var angVariation;
 var largVarMin, largVarMax;
 
 var arvore = new Arvore();
@@ -21,6 +22,7 @@ function setup() {
 
 	angIniMin = 4.4;
 	angIniMax = 5.1;
+	angVariation = 0.8;
 
 	largPercentagem = 0.6;
 	largVarMin = 0.3;
@@ -37,6 +39,7 @@ function setup() {
 		compVarMax, 
 		angIniMin,
 		angIniMax,
+		angVariation,
 		largPercentagem,
 		largVarMin,
 		largVarMax

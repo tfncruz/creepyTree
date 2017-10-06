@@ -11,6 +11,7 @@ function Arvore() {
 	this.posYIni;
 	this.angIniMin;
 	this.andIniMax;
+	this.angVariation;
 	this.alturaTronco;
 	this.espessuraTronco;
 
@@ -24,7 +25,7 @@ function Arvore() {
 		cx,cy, gen, nRamos,
 		altTronco, espTronco, 
 		compPerc, compVarMin, compVarMax,
-		angIniMin, angIniMax, 
+		angIniMin, angIniMax, angVariation, 
 		largPerc, largVarMin, largVarMax) {
 		
 		this.geracoes = gen;
@@ -39,6 +40,7 @@ function Arvore() {
 		this.compVarMax = compVarMax;
 		this.angIniMin = angIniMin;
 		this.angIniMax = angIniMax;
+		this.angVariation = angVariation;
 		this.genPercentageLarg = largPerc;
 		this.largVarMin = largVarMin;
 		this.largVarMax = largVarMax;
@@ -69,8 +71,9 @@ function Arvore() {
 		var larg = largIni*random(this.largVarMin,this.largVarMax);
 
 		for(var ang = angIni-HALF_PI+angPasso; ang < angIni+HALF_PI-angPasso; ang += angPasso) {
-			var ax = cx + comp * cos(ang);
-			var ay = cy + comp * sin(ang);
+			var angTmp = random(ang-(this.angVariation/2),ang+(this.angVariation/2));
+			var ax = cx + comp * cos(angTmp);
+			var ay = cy + comp * sin(angTmp);
 
 			append(this.segmentos, new segmento(cx, cy, ax, ay,larg));
 

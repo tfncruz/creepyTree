@@ -7,6 +7,7 @@ function segmento(ax,ay,bx,by,esp) {
 
 	this.desenhaSeg = function() {
 		stroke(0);
+		strokeCap(PROJECT);
 		strokeWeight(this.esp);
 		line(this.ax, this.ay, this.bx, this.by);
 	}

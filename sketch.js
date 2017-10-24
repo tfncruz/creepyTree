@@ -6,11 +6,14 @@ var largPercentagem;
 var angIniMin, angIniMax;
 var angVariation;
 var largVarMin, largVarMax;
+var cor;
 
 var arvore = new Arvore();
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+
+	cor = color(200,0,0);
 
 	geracoes = 9;
 	nRamos = 2;
@@ -42,7 +45,8 @@ function setup() {
 		angVariation,
 		largPercentagem,
 		largVarMin,
-		largVarMax
+		largVarMax,
+		cor
 		);
 }
 

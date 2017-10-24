@@ -3,6 +3,7 @@ function Arvore() {
 
 	this.geracoes;
 	this.nRamos;
+	this.cor;
 
 	this.tx;
 	this.ty;
@@ -26,10 +27,11 @@ function Arvore() {
 		altTronco, espTronco, 
 		compPerc, compVarMin, compVarMax,
 		angIniMin, angIniMax, angVariation, 
-		largPerc, largVarMin, largVarMax) {
+		largPerc, largVarMin, largVarMax, cor) {
 		
 		this.geracoes = gen;
 		this.nRamos = nRamos;
+		this.cor = cor;
 
 		this.posXIni = cx;
 		this.posYIni = cy;
@@ -49,7 +51,7 @@ function Arvore() {
 
 		this.tx = this.posXIni + this.alturaTronco * cos(this.angIni);
 		this.ty = this.posYIni + this.alturaTronco * sin(this.angIni);
-		this.segmentos[0] = new segmento(this.posXIni,this.posYIni,this.tx,this.ty,this.espessuraTronco);
+		this.segmentos[0] = new segmento(this.posXIni,this.posYIni,this.tx,this.ty,this.espessuraTronco, this.cor);
 
 		this.desenhaRamos(this.tx, this.ty, this.angIni, this.alturaTronco, this.espessuraTronco, this.geracoes);
 	}
@@ -75,7 +77,7 @@ function Arvore() {
 			var ax = cx + comp * cos(angTmp);
 			var ay = cy + comp * sin(angTmp);
 
-			append(this.segmentos, new segmento(cx, cy, ax, ay,larg));
+			append(this.segmentos, new segmento(cx, cy, ax, ay,larg, this.cor));
 
 			if(gen > 0) {
 				this.desenhaRamos(ax, ay, ang, comp, larg, gen);
